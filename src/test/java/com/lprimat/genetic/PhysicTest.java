@@ -9,16 +9,18 @@ public class PhysicTest {
 	
 	private Ship ship;
 	private Physic physic;
+	private Game game;
 	
 	@Before
 	public void init() {
 		ship = new Ship(0, 2700, 0, 0, 550, 0, 0);
-		physic = new Physic(ship);
+		game = new Game(ship);
+		physic = new Physic();
 	}
 	
 	@Test
 	public void compute_simple_gravity() {
-		physic.computePhysics();
+		physic.computePhysics(game);
 		
 		assertEquals(2698, Math.round(ship.posY), 0.01);
 		assertEquals(-4, Math.round(ship.vSpeed), 0.01);
@@ -28,10 +30,10 @@ public class PhysicTest {
 	public void compute_simple_leff_thrust() {
 		ship.angle = -90;
 		ship.power = 1;
-		physic.computePhysics();
+		physic.computePhysics(game);
 		
-		assertEquals(0.5, ship.posX, 0.0001);
-		assertEquals(1, ship.hSpeed, 0.0001);
+		assertEquals(0.5, ship.posX, 0.01);
+		assertEquals(1, ship.hSpeed, 0.01);
 	}
 	
 	

@@ -3,11 +3,9 @@ package com.lprimat.genetic;
 public class Game {
 	
 	public Ship ship;
-	public Physic physic;
 	
-	public Game(Ship ship, Physic physic) {
+	public Game(Ship ship) {
 		this.ship = ship;
-		this.physic = physic;
 	}
 	
 	

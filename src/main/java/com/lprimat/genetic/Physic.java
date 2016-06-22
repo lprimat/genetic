@@ -4,12 +4,15 @@ public class Physic {
 
 	public static double GRAVITY = 3.711;
 	private Ship ship;
+	private Game game;
 	
-	public Physic (Ship ship) {
-		this.ship = ship;
+	public Physic () {
 	}
 	
-	public void computePhysics() {
+	public void computePhysics(Game game) {
+		this.game = game;
+		this.ship = game.ship;
+		
 		computePositions();
 		computeSpeeds();
 	}
@@ -27,9 +30,4 @@ public class Physic {
 		ship.posX = ship.posX + ship.hSpeed - 0.5 * Math.sin(angle) * ship.power;
 		ship.posY = ship.posY + ship.vSpeed  + 0.5 * (Math.cos(angle)* ship.power - GRAVITY);
 	}
-	
-//	x = x+vx-0.5*sin(angle*M_PI/180.)*thrust;
-//    y = y+vy+0.5*(cos(angle*M_PI/180.)*thrust-G);
-//    vx = vx-1.*sin(angle*M_PI/180.)*thrust;
-//    vy = vy+1.*(cos(angle*M_PI/180.)*thrust-G);
 }
