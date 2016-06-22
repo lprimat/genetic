@@ -29,7 +29,7 @@ public class PhysicTest {
 	@Test
 	public void compute_simple_leff_thrust() {
 		ship.angle = -90;
-		ship.power = 1;
+		ship.thrust = 1;
 		physic.computePhysics(game);
 		
 		assertEquals(0.5, ship.posX, 0.01);

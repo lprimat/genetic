@@ -8,7 +8,7 @@ public class Ship {
 	public double vSpeed;
 	public int fuel;
 	public double angle;
-	public int power;
+	public int thrust;
 	
 	public Ship(double posX, double posY, double hSpeed, double vSpeed,
 			int fuel, double angle, int power) {
@@ -19,7 +19,7 @@ public class Ship {
 		this.vSpeed = vSpeed;
 		this.fuel = fuel;
 		this.angle = angle;
-		this.power = power;
+		this.thrust = power;
 	}
 	
 	

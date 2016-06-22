@@ -15,19 +15,24 @@ public class Physic {
 		
 		computePositions();
 		computeSpeeds();
+		computeInputs();
+	}
+	
+	private void computeInputs() {
+		
 	}
 
 	private void computeSpeeds() {
 		double angle = Math.toRadians(ship.angle);
 		
-		ship.hSpeed = ship.hSpeed - 1.0 * Math.sin(angle) * ship.power;
-		ship.vSpeed = ship.vSpeed + 1.0 * (Math.cos(angle) * ship.power - GRAVITY);
+		ship.hSpeed = ship.hSpeed - 1.0 * Math.sin(angle) * ship.thrust;
+		ship.vSpeed = ship.vSpeed + 1.0 * (Math.cos(angle) * ship.thrust - GRAVITY);
 	}
 	
 	private void computePositions() {
 		double angle = Math.toRadians(ship.angle);
 		
-		ship.posX = ship.posX + ship.hSpeed - 0.5 * Math.sin(angle) * ship.power;
-		ship.posY = ship.posY + ship.vSpeed  + 0.5 * (Math.cos(angle)* ship.power - GRAVITY);
+		ship.posX = ship.posX + ship.hSpeed - 0.5 * Math.sin(angle) * ship.thrust;
+		ship.posY = ship.posY + ship.vSpeed  + 0.5 * (Math.cos(angle)* ship.thrust - GRAVITY);
 	}
 }
